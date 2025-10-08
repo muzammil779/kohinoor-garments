@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kohinoor Garments - Diwali Offer</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #fdf7f2;
+      overflow-x: hidden;
+    }
+
+    /* ✅ Hero Section */
+    .hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://i.ibb.co/RG201nvJ/IMG-20251006-WA0020.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: none !important;      /* remove any blur or dimming */
+  image-rendering: crisp-edges; /* makes image sharp */
+  -webkit-image-rendering: crisp-edges;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 6%;
+  color: #fff;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.1); 
+  z-index: 0;
+}
+
+    .form-container {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 16px;
+      width: 340px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      color: #333;
+    }
+
+    .form-container h2 {
+      color: #b22222;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    .btn-coupon {
+      background: #e6b800;
+      color: #fff;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .coupon-box {
+      display: none;
+      margin-top: 12px;
+      background: #fff3cd;
+      color: #856404;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* ✅ Footer Section Image */
+    .footer-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: -5px;
+    }
+
+    footer {
+      background-color: #111;
+      color: #bbb;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    @media(max-width:768px){
+      .hero {
+        justify-content: center;
+        padding: 0 20px;
+      }
+      .form-container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🪔 Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="form-container">
+      <h2>✨ Diwali Special 30% OFF ✨</h2>
+      <input id="name" type="text" placeholder="Name" required>
+      <input id="phone" type="tel" placeholder="Phone No." required>
+      <input id="email" type="email" placeholder="Email" required>
+      <button class="btn btn-coupon" onclick="generateCoupon()">Get Coupon Code</button>
+      <button class="btn btn-whatsapp" onclick="sendToWhatsApp()">Send to WhatsApp</button>
+      <div id="couponBox" class="coupon-box"></div>
+    </div>
+  </section>
+
+  <!-- 🪞 Extra Image at End -->
+<imgsrc="<a href="https://ibb.co/VcgGKykP"><img src="https://i.ibb.co/7dnD9c06/1759768253318.png" alt="1759768253318" border="0" /></a>""
+ <imgsrc="<a href="https://ibb.co/qYm2LW4S"><img src="https://i.ibb.co/9HydmVfD/1759827299589.png" alt="1759827299589" border="0" /></a>""
+  <!-- 🧧 Footer -->
+  <footer>
+    © 2025 Kohinoor Garments | All Rights Reserved
+  </footer>
+
+  <script>
+    function generateCoupon(){
+      const coupon = 'DIWALI' + Math.floor(1000 + Math.random() * 9000) + '-KGRM30';
+      const box = document.getElementById('couponBox');
+      box.style.display = 'block';
+      box.textContent = '🎁 Your Exclusive Coupon Code: ' + coupon;
+      localStorage.setItem('couponCode', coupon);
+    }
+
+    function sendToWhatsApp(){
+      const name = document.getElementById('name').value || 'N/A';
+      const phone = document.getElementById('phone').value || 'N/A';
+      const email = document.getElementById('email').value || 'N/A';
+      const coupon = localStorage.getItem('couponCode') || 'DIWALI2024-KGRM30';
+      const whatsappNumber = '+918770620427'; 
+      const text = `Hello Kohinoor Garments,%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0A🎟 Coupon: ${coupon}`;
+      window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
